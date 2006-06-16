@@ -1,0 +1,7 @@
+DESCRIPTION="SDL breakout game"
+HOMEPAGE="http://lgames.sourceforge.net/"
+SRC_URI="http://umn.dl.sourceforge.net/lgames/${PN}-${PV%[0-9]}-${PV#*beta}.tar.gz"
+SRC_DIR=${PN}-${PV%[0-9]}-${PV#*beta}
+
+CYGCONF_ARGS="--enable-sdl-net --localstatedir=/var/games \
+	--with-docdir=/usr/share/doc/${P}/html"

@@ -1,4 +1,4 @@
 category: Games
-requires: cygwin libSDL libSDL_mixer libSDL_net libintl3 libpng12 xorg-x11-base
+requires: cygwin libSDL12 libSDL_mixer libSDL_net libintl8 libpng12
 sdesc: "SDL Breakout game"
 ldesc: "SDL Breakout game"

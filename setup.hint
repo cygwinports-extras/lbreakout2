@@ -1,4 +1,4 @@
 category: Games
-requires: cygwin libSDL12 libSDL_mixer libSDL_net libintl8 libpng12
+requires: libSDL12 libSDL_mixer libSDL_net libintl8 libpng12
 sdesc: "SDL Breakout game"
 ldesc: "SDL Breakout game"

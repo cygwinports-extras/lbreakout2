@@ -1,15 +1,17 @@
---- origsrc/lbreakout2-2.6beta-6/client/Makefile.am	2005-10-19 15:16:27.000000000 -0500
-+++ src/lbreakout2-2.6beta-6/client/Makefile.am	2006-05-31 17:44:54.718750000 -0500
-@@ -35,7 +35,7 @@
- client_data.c client_handlers.c game.c comm.c slot.c \
- display.c main.c win32.ico
- lbreakout2_DEPENDENCIES = @win32_deps@
--lbreakout2_LDADD = @win32_deps@ ../common/libcommon.a ../gui/libGui.a ../game/libgame.a @mixer_flag@ @sdlnet_lib_flag@
-+lbreakout2_LDADD = @win32_deps@ ../common/libcommon.a ../gui/libGui.a ../game/libgame.a @mixer_flag@ @sdlnet_lib_flag@ $(LTLIBINTL)
+--- origsrc/lbreakout2-2.6.2/Makefile.am	2010-10-04 08:41:03.000000000 -0500
++++ src/lbreakout2-2.6.2/Makefile.am	2010-11-04 00:46:30.120713200 -0500
+@@ -21,7 +21,7 @@ AUTOMAKE_OPTIONS = foreign
+ # does not contain plus signs. :-)
+ lbreakout2.desktop:
+ 	@sed -e "s+Icon=+Icon=$(datadir)/icons/lbreakout48.gif+" \
+-	< lbreakout2.desktop.in > lbreakout2.desktop
++	< $(srcdir)/lbreakout2.desktop.in > lbreakout2.desktop
  
- EXTRA_DIST = credit.h shine.h extras.h balls.h shrapnells.h  \
- shots.h event.h paddle.h frame.h misc.h bricks.h player.h \
-@@ -51,7 +51,7 @@
+ win32text: $(WIN32_TEXT)
+ 	@echo Converting text files for win32 installer
+--- origsrc/lbreakout2-2.6.2/client/Makefile.am	2010-11-04 00:47:21.584260700 -0500
++++ src/lbreakout2-2.6.2/client/Makefile.am	2010-11-04 00:34:53.359479200 -0500
+@@ -51,7 +51,7 @@ install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)
  	$(mkinstalldirs) $(DESTDIR)$(hi_dir)
  	if ! test -f $(DESTDIR)$(hi_dir)/lbreakout2.hscr; then \
@@ -18,9 +20,9 @@
  	fi;
  
  uninstall-local:
---- origsrc/lbreakout2-2.6beta-6/client/gfx/AbsoluteB/Makefile.am	2005-02-16 15:07:28.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/client/gfx/AbsoluteB/Makefile.am	2006-05-31 17:44:54.734375000 -0500
-@@ -6,7 +6,7 @@
+--- origsrc/lbreakout2-2.6.2/client/gfx/AbsoluteB/Makefile.am	2010-11-04 00:47:21.589261000 -0500
++++ src/lbreakout2-2.6.2/client/gfx/AbsoluteB/Makefile.am	2010-11-04 00:34:53.371479900 -0500
+@@ -6,7 +6,7 @@ ABOUT README
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)/gfx/AbsoluteB
  	@for file in $(EXTRA_DIST); do\
@@ -29,9 +31,9 @@
  	done
  
  win32-install-script:
---- origsrc/lbreakout2-2.6beta-6/client/gfx/Classic/Makefile.am	2005-02-16 15:07:28.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/client/gfx/Classic/Makefile.am	2006-05-31 17:44:54.750000000 -0500
-@@ -3,7 +3,7 @@
+--- origsrc/lbreakout2-2.6.2/client/gfx/Classic/Makefile.am	2010-11-04 00:47:21.594261300 -0500
++++ src/lbreakout2-2.6.2/client/gfx/Classic/Makefile.am	2010-11-04 00:34:53.377480200 -0500
+@@ -3,7 +3,7 @@ EXTRA_DIST = ABOUT
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)/gfx/Classic
  	@for file in $(EXTRA_DIST); do\
@@ -40,9 +42,9 @@
  	done
  
  win32-install-script:
---- origsrc/lbreakout2-2.6beta-6/client/gfx/Makefile.am	2005-02-16 15:07:28.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/client/gfx/Makefile.am	2006-05-31 17:44:54.750000000 -0500
-@@ -19,7 +19,7 @@
+--- origsrc/lbreakout2-2.6.2/client/gfx/Makefile.am	2010-11-04 00:47:21.598261500 -0500
++++ src/lbreakout2-2.6.2/client/gfx/Makefile.am	2010-11-04 00:34:53.365479600 -0500
+@@ -19,7 +19,7 @@ SUBDIRS = AbsoluteB Oz Moiree Classic
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)/gfx
  	@for file in $(EXTRA_DIST); do\
@@ -51,9 +53,9 @@
  	done
  
  win32-install-script:
---- origsrc/lbreakout2-2.6beta-6/client/gfx/Moiree/Makefile.am	2005-02-16 15:07:28.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/client/gfx/Moiree/Makefile.am	2006-05-31 17:44:55.531250000 -0500
-@@ -7,7 +7,7 @@
+--- origsrc/lbreakout2-2.6.2/client/gfx/Moiree/Makefile.am	2010-11-04 00:47:21.603261800 -0500
++++ src/lbreakout2-2.6.2/client/gfx/Moiree/Makefile.am	2010-11-04 00:34:53.382480500 -0500
+@@ -7,7 +7,7 @@ ABOUT
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)/gfx/Moiree
  	@for file in $(EXTRA_DIST); do\
@@ -62,9 +64,9 @@
  	done
  
  win32-install-script:
---- origsrc/lbreakout2-2.6beta-6/client/gfx/Oz/Makefile.am	2005-02-16 15:07:27.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/client/gfx/Oz/Makefile.am	2006-05-31 17:44:55.546875000 -0500
-@@ -6,7 +6,7 @@
+--- origsrc/lbreakout2-2.6.2/client/gfx/Oz/Makefile.am	2010-11-04 00:47:21.607262000 -0500
++++ src/lbreakout2-2.6.2/client/gfx/Oz/Makefile.am	2010-11-04 00:34:53.388480900 -0500
+@@ -6,7 +6,7 @@ README
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)/gfx/Oz
  	@for file in $(EXTRA_DIST); do\
@@ -73,9 +75,9 @@
  	done
  
  win32-install-script:
---- origsrc/lbreakout2-2.6beta-6/client/gui_theme/Makefile.am	2005-02-16 15:07:29.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/client/gui_theme/Makefile.am	2006-05-31 17:44:55.562500000 -0500
-@@ -9,7 +9,7 @@
+--- origsrc/lbreakout2-2.6.2/client/gui_theme/Makefile.am	2010-11-04 00:47:21.612262300 -0500
++++ src/lbreakout2-2.6.2/client/gui_theme/Makefile.am	2010-11-04 00:34:53.393481200 -0500
+@@ -9,7 +9,7 @@ edit.wav click.wav
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)/gui_theme
  	@for file in $(EXTRA_DIST); do \
@@ -84,9 +86,9 @@
  	done
  
  win32-install-script:
---- origsrc/lbreakout2-2.6beta-6/client/levels/Makefile.am	2005-09-13 09:46:38.000000000 -0500
-+++ src/lbreakout2-2.6beta-6/client/levels/Makefile.am	2006-05-31 17:44:55.625000000 -0500
-@@ -16,7 +16,7 @@
+--- origsrc/lbreakout2-2.6.2/client/levels/Makefile.am	2010-11-04 00:47:21.617262600 -0500
++++ src/lbreakout2-2.6.2/client/levels/Makefile.am	2010-11-04 00:34:53.398481400 -0500
+@@ -115,7 +115,7 @@ Zufallswelt
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)/levels
  	@for file in $(EXTRA_DIST); do \
@@ -95,9 +97,9 @@
  	done
  
  win32-install-script:
---- origsrc/lbreakout2-2.6beta-6/client/sounds/Makefile.am	2005-02-16 15:07:31.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/client/sounds/Makefile.am	2006-05-31 17:44:55.640625000 -0500
-@@ -8,8 +8,8 @@
+--- origsrc/lbreakout2-2.6.2/client/sounds/Makefile.am	2010-11-04 00:47:21.625263000 -0500
++++ src/lbreakout2-2.6.2/client/sounds/Makefile.am	2010-11-04 00:34:53.404481800 -0500
+@@ -8,8 +8,8 @@ bonus_magnet.wav malus_magnet.wav disabl
  
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)/sounds
@@ -108,9 +110,9 @@
  	done
  
  win32-install-script:
---- origsrc/lbreakout2-2.6beta-6/docs/Makefile.am	2005-02-16 15:07:25.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/docs/Makefile.am	2006-05-31 17:44:55.656250000 -0500
-@@ -8,10 +8,9 @@
+--- origsrc/lbreakout2-2.6.2/docs/Makefile.am	2010-11-04 00:47:21.629263300 -0500
++++ src/lbreakout2-2.6.2/docs/Makefile.am	2010-11-04 00:34:53.409482100 -0500
+@@ -8,10 +8,9 @@ warp.jpg screen.jpg
  
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(doc_dir)/lbreakout2
@@ -123,19 +125,9 @@
  
  win32-install-script:
  	@for file in $(EXTRA_DIST); do \
---- origsrc/lbreakout2-2.6beta-6/server/Makefile.am	2005-11-13 09:02:18.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/server/Makefile.am	2006-05-31 17:44:56.125000000 -0500
-@@ -7,6 +7,6 @@
- 
- EXTRA_DIST = server.h server_game.h
- 
--lbreakout2server_LDADD = ../common/libcommon.a ../game/libgame.a @sdlnet_lib_flag@
-+lbreakout2server_LDADD = ../common/libcommon.a ../game/libgame.a @sdlnet_lib_flag@ $(LTLIBINTL)
- 
- SUBDIRS = levels
---- origsrc/lbreakout2-2.6beta-6/server/levels/Makefile.am	2005-02-16 15:07:33.000000000 -0600
-+++ src/lbreakout2-2.6beta-6/server/levels/Makefile.am	2006-05-31 17:44:56.125000000 -0500
-@@ -3,7 +3,7 @@
+--- origsrc/lbreakout2-2.6.2/server/levels/Makefile.am	2010-11-04 00:47:21.634263500 -0500
++++ src/lbreakout2-2.6.2/server/levels/Makefile.am	2010-11-04 00:34:53.419482600 -0500
+@@ -3,7 +3,7 @@ EXTRA_DIST = N_Arenas N_Snapshots
  install-data-local:
  	$(mkinstalldirs) $(DESTDIR)$(inst_dir)/levels
  	@for file in $(EXTRA_DIST); do \

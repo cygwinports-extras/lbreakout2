@@ -1,9 +1,0 @@
-category: Games
-requires: libintl8 libpng14 libSDL1.2_0 libSDL_mixer1.2_0 libSDL_net1.2_0
-sdesc: "SDL Breakout game"
-ldesc: "The successor to LBreakout offers you a new challenge in more 
-than 50 levels with loads of new bonuses (goldshower, joker, explosive 
-balls, bonus magnet ...), maluses (chaos, darkness, weak balls, malus 
-magnet ...) and special bricks (growing bricks, explosive bricks, 
-regenerative bricks ...). If you are hungry for more you can create your 
-own levelsets with the integrated level editor."

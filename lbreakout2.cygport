@@ -1,0 +1,25 @@
+NAME="lbreakout2"
+VERSION=2.6.4
+RELEASE=1
+CATEGORY="Games"
+SUMMARY="SDL breakout game"
+DESCRIPTION="The successor to LBreakout offers you a new challenge in more
+than 50 levels with loads of new bonuses (goldshower, joker, explosive balls,
+bonus magnet ...), maluses (chaos, darkness, weak balls, malus magnet ...) and
+special bricks (growing bricks, explosive bricks, regenerative bricks ...).
+If you are hungry for more you can create your own levelsets with the
+integrated level editor."
+HOMEPAGE="http://lgames.sourceforge.net/"
+SRC_URI="mirror://sourceforge/lgames/${PN}-${PV}.tar.gz"
+
+PATCH_URI="
+	2.6.2-setresgid.patch
+	2.6.2-vpath.patch
+"
+
+CYGCONF_ARGS="
+	--enable-sdl-net
+	--localstatedir=/var/games
+	--with-docdir=/usr/share/doc
+"
+LIBS="-lintl"

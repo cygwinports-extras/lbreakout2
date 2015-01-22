@@ -1,6 +1,6 @@
 NAME="lbreakout2"
 VERSION=2.6.4
-RELEASE=1
+RELEASE=2
 CATEGORY="Games"
 SUMMARY="SDL breakout game"
 DESCRIPTION="The successor to LBreakout offers you a new challenge in more
